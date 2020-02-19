@@ -198,7 +198,7 @@
     </ul>
   </li>
 
-            <?php
+  <?php
 		if ($this->session->userdata('loggedin')->user_type == 'A'||$this->session->userdata('loggedin')->user_type == 'AC') {?>
  
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Master Components">
@@ -243,12 +243,12 @@
 
              <?php 
              }
-              if ($this->session->userdata('loggedin')->user_type == 'M') {?>
+              if ($this->session->userdata('loggedin')->user_type == 'E' || $this->session->userdata('loggedin')->user_type == 'M') {?>
 
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Master Components">
                   <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
-                    <span class="nav-link-text">User Master</span>
+                    <span class="nav-link-text">Project Master</span>
                   </a>
                   <ul class="sidenav-second-level collapse" id="collapseComponents">
                     
@@ -260,6 +260,7 @@
 
              <?php 
            }
+           
 
  /******************************************************************************************************          
   *               Payment to Employees -> Accountant(AC)                                               *

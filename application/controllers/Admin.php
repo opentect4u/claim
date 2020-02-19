@@ -318,7 +318,7 @@ class Admin extends CI_Controller {
 // For Adding Project Names...............................
 
 	public function addProjects(){
-		if($this->session->userdata('is_login')->user_type == 'A' || $this->session->userdata('is_login')->user_type == 'M'){
+		if($this->session->userdata('is_login')->user_type == 'A' || $this->session->userdata('is_login')->user_type == 'M' || $this->session->userdata('is_login')->user_type == 'E'){
     		$title['title'] = 'Claim-Projects';
     		$in = $this->uri->segment(3);
     		$t_name ='mm_project';
@@ -355,7 +355,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function addProjectProcess(){
-		if($this->session->userdata('is_login')->user_type == 'A' || $this->session->userdata('is_login')->user_type == 'M'){
+		if($this->session->userdata('is_login')->user_type == 'A' || $this->session->userdata('is_login')->user_type == 'M' || $this->session->userdata('is_login')->user_type == 'E'){
     		$project_cd = $this->input->post('project_cd');
 			$project_name = $this->input->post('project_name');
 			$project_type = $this->input->post('project_type');
@@ -375,7 +375,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function editProjectProcess(){
-		if($this->session->userdata('is_login')->user_type == 'A' || $this->session->userdata('is_login')->user_type == 'M'){
+		if($this->session->userdata('is_login')->user_type == 'A' || $this->session->userdata('is_login')->user_type == 'M' || $this->session->userdata('is_login')->user_type == 'E'){
 			$id = $this->input->post('id');
     		$project_cd = $this->input->post('project_cd');
 			$project_name = $this->input->post('project_name');
