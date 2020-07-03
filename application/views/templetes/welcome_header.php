@@ -326,6 +326,9 @@
                     <li class="emp_cl_balance">
                       <a class="nav-link" data-toggle="modal" data-target="#empClBalns">Employee Balances</a>
                     </li>
+                    <li class="lv_balance">
+                      <a class="nav-link" data-toggle="modal" data-target="#empLvBalns">Leave Balance</a>
+                    </li>
                     <?php
                     }
                     ?>

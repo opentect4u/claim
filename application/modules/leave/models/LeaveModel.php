@@ -180,15 +180,28 @@
             $data[] = $row;
         }
         for ($i=0; $i < sizeof($data); $i++) { 
-			$this->db->select('emp_no');
+			/*$this->db->select('emp_no');
 			$this->db->select('cl');
 			$this->db->select('el');
 			$this->db->select('ml');
 			$this->db->select('hl');
 			$this->db->select('lwp');
 			$this->db->where('emp_no', $data[$i]->emp_no);
-			$this->db->where('balance_dt', $data[$i]->balance_dt);
-			$result = $this->db->get('td_leave_balance');
+			$this->db->where('balance_dt', $data[$i]->balance_dt);*/
+
+			$empNo = $data[$i]->emp_no;
+			$balDt = $data[$i]->balance_dt;
+
+			$sql1 = "SELECT emp_no, sl_no, cl, el, ml, hl, lwp
+					 FROM   td_leave_balance
+					 WHERE  emp_no     = $empNo
+					 AND    balance_dt = '$balDt'
+					 And    sl_no      = (select max(sl_no) 
+										  from   td_leave_balance
+										  where  emp_no     = $empNo
+										  And    balance_dt = '$balDt')";
+
+			$result  = $this->db->query($sql1);
     		$count[] = $result->row();
     	}
 		return $count;

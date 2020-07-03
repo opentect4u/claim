@@ -266,6 +266,7 @@
 			$this->load->view('report/leaveDtlModal');
 	    }
 
+		//************************************************************ */
 	    //For Leave application
 	    public function leaveApplication() {
 			$title['title'] = 'Claim-Leave Details';
@@ -296,7 +297,7 @@
 	    public function leave_apl_ajax(){
 			$this->load->view('report/leaveAplModal');
 	    }
-
+		/****************************************************************** */
 	    public function lv_balance_ajax(){
 			$this->load->view('report/lvBalanceModal');
 	    }
@@ -306,6 +307,8 @@
 
 			$date1_temp 	= DateTime::createFromFormat('d/m/Y',$_POST['date1']);
 			$from_date 		= $date1_temp->format('Y-m-d');
+
+			$_SESSION['frm_dt'] = $from_date;
 
 
 			$result['emp_dtls'] = $this->AdminProcess->getAll('mm_employee');
@@ -323,5 +326,50 @@
 			$this->load->view('report/levBalance',$result);
 			$this->load->view('templetes/welcome_footer');
 		}
+
+		public function print_bal_xlsx() {
+
+			$this->load->library('excel');
+
+			$object = new PHPExcel();
+			$object->setActiveSheetIndex(0);
+
+			$table_column = array("Employee No.","Name","CL","EL","ML","HL","LWP");
+
+			$column = 0;
+
+			foreach($table_column as $values){
+				$object->getActiveSheet()->SetCellValueByColumnAndRow($column,1,$values);
+				$column++;	
+			}
+ 
+			$xldata = $this->LeaveModel->lvBalanceAll($_SESSION['frm_dt']);
+			$rowCount = 2;
+
+			foreach($xldata as $row){
+
+				$object->getActiveSheet()->SetCellValueByColumnAndRow(0,$rowCount,$row->emp_no);
+				$object->getActiveSheet()->SetCellValueByColumnAndRow(1,$rowCount,'');
+				$object->getActiveSheet()->SetCellValueByColumnAndRow(2,$rowCount,$row->cl);
+				$object->getActiveSheet()->SetCellValueByColumnAndRow(3,$rowCount,$row->el);
+				$object->getActiveSheet()->SetCellValueByColumnAndRow(4,$rowCount,$row->ml);
+				$object->getActiveSheet()->SetCellValueByColumnAndRow(5,$rowCount,$row->hl);
+				$object->getActiveSheet()->SetCellValueByColumnAndRow(6,$rowCount,$row->lwp);
+
+				$rowCount++;
+			}
+
+			$filename = "Leave_Balance-".date("d-m-Y H-i-s").'.xlsx';
+			$object->getActiveSheet()->setTitle("Purposewise Expense");
+
+			header('Content-Type:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+			header('Content-Disposition: attachment;filename="'.$filename.'"');
+			header('Cache-Control: max-age=0');
+
+			$writer = PHPExcel_IOFactory::createWriter($object,'Excel2007');
+			$writer->save('php://output');
+		   
+			exit;
+    	}
 }
 ?>
