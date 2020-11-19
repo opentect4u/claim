@@ -194,6 +194,10 @@
           <li class="leave_apl">
             <a class="nav-link" data-toggle="modal" data-target="#leaveApl">Leave Application</a>
           </li>
+
+          <li class="lv_balance">
+            <a class="nav-link" data-toggle="modal" data-target="#empLvBalns">Leave Balance</a>
+          </li>
           <?php } ?>
     </ul>
   </li>
@@ -323,15 +327,15 @@
                       <a class="nav-link" data-toggle="modal" data-target="#alclbalns">All Closing Balances</a>
                     </li>-->
                     <?php if ($this->session->userdata('loggedin')->user_type != 'E') {?>
-                    <li class="emp_cl_balance">
-                      <a class="nav-link" data-toggle="modal" data-target="#empClBalns">Employee Balances</a>
-                    </li>
-                    <li class="lv_balance">
-                      <a class="nav-link" data-toggle="modal" data-target="#empLvBalns">Leave Balance</a>
-                    </li>
-                    <?php
-                    }
-                    ?>
+                      <li class="emp_cl_balance">
+                        <a class="nav-link" data-toggle="modal" data-target="#empClBalns">Employee Balances</a>
+                      </li>
+
+                      <li class="lv_balance">
+                        <a class="nav-link" data-toggle="modal" data-target="#empLvBalns">Leave Balance</a>
+                      </li>
+                    <?php } ?>
+
                     <li class="totalClaimDtl">
                       <a class="nav-link" data-toggle="modal" data-target="#totalClaimDtl">Total Claim Details</a>
                     </li>
