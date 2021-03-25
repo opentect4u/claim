@@ -233,6 +233,20 @@ class Process extends CI_Model {
     	}
 		return false;
 	}
+		//Claim Head
+	public function getAll_claimHd($t_name){
+		$this->db->select('*');
+		$this->db->from($t_name);
+		$this->db->where('active_flag','A');
+		$result = $this->db->get();
+		if( $result->num_rows() > 0) {
+	        foreach ($result->result() as $row) {
+	            $data[] = $row;
+	        }
+	        return $data;
+    	}
+		return false;
+	}
 
 	public function editEmployeeProcess($emp_no,$emp_name,$status,$date1,$date2,$sector,$designation){
 		$value = array(

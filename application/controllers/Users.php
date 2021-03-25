@@ -413,7 +413,7 @@ class Users extends CI_Controller {
 		$t_name2 ='mm_claim_head';
 		$t_name3 = 'mm_project';
 		$t_name4 = 'tm_claim_trans';
-		$data['chead'] = $this->Process->getAll($t_name2);
+		$data['chead'] = $this->Process->getAll_claimHd($t_name2);
 		$data['project_name'] = $this->Process->getAll($t_name3);
 		$data['purpose'] = $this->Process->getAll('mm_purpose');
 		
@@ -450,7 +450,7 @@ class Users extends CI_Controller {
 		$result['purpose'] = $this->Process->getAll($t_name3);
 	
 		//$result['project_type'] = $this->Process->getAll('mm_project_type');
-		$result['chead'] = $this->Process->getAll($t_name);
+		$result['chead'] = $this->Process->getAll_claimHd($t_name);
 		$this->load->view('GU/addClaimModal',$result);
 	}
 
