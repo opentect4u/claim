@@ -80,7 +80,7 @@
 			 break;
 		    } 
 		      echo $month;?></td>
-                  <td><?php echo $values->tot_ear;?></td>
+                  <td><?php echo $values->tot_sal;?></td>
 		  <td><?php echo $values->net_amt;?></td>            
                   <td><button class="btn print-btn onClick" data-toggle="tooltip" data-placement="bottom" title="" 
 		       data-original-title="Print" 

@@ -44,7 +44,7 @@
 		  <td><?php echo date('d/m/Y',strtotime($values->trans_dt));?></td>
                   <td><?php echo $values->emp_no;?></td>
                   <td><?php echo $values->emp_name;?></td>
-                  <td><?php echo $values->tot_ear;?></td>
+                  <td><?php echo $values->tot_sal;?></td>
 		  <td><?php echo $values->net_amt;?></td>            
                   <td><button class="btn btn-primary edit-btn" data-toggle="tooltip" data-placement="bottom" title="" 
 		       data-original-title="Edit Employee Details" 

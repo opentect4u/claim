@@ -63,8 +63,9 @@
 
                 <h3>Synergic Softek Solutions Pvt.Ltd.</h3>
 
-                <h4><span>55 D, Desapran Sasmal Road</span> <br>
-					<span>KOLKATA-33</span></h4>
+                <h5><span>Acropolis, Module 7/18</span> <br>
+					<span>1858/1 Rajdanga Main Road</span>
+					<span>Kolkata-107</span><h5>
 				<h4><?php echo $emp_dtls->emp_name; ?></h4>
 
 				<h5>Pay Slip for <?php echo date('F',strtotime("2012-$data_dtls->sal_month-01")).' - '.
@@ -75,7 +76,7 @@
 			<div class="card-body">
 
 	          <div class="table-responsive">
-
+<hr>
 	          	<table class="width noborder" cellpadding="3.5">
 
 	                <tr>
@@ -128,8 +129,8 @@
 	                    <td class="left_algn">: <?php echo $emp_dtls->esi_no; ?></td>
 
 	                </tr>
-
 	            </table>   
+				<hr>
 
 	            <table class="width" cellpadding="6" style="width:100%; ">
 
@@ -149,8 +150,8 @@
 	                    <tr class="t2">
 	                        <td class="left_algn">Basic</td>
 	                        <td class="right_algn"><?php echo $data_dtls->basic_sal; ?></td>
-	                        <td class="left_algn">Arrear EPF</td>
-	                        <td class="right_algn"><?php echo $data_dtls->arr_pf; ?></td>
+	                        <td class="left_algn">Prof.Tax</td>
+	                        <td class="right_algn"><?php echo $data_dtls->ptax_amt; ?></td>
 	                    </tr>
 
 	                    <tr class="t2">
@@ -163,88 +164,88 @@
 	                    <tr class="t2">
 	                        <td class="left_algn">HRA</td>
 	                        <td class="right_algn"><?php echo $data_dtls->hra_amt; ?></td>
-	                        <td class="left_algn">Employee Advance</td>
+	                        <td class="left_algn">Loan/Misc Deduction</td>
 	                        <td class="right_algn"><?php echo $data_dtls->adv_amt; ?></td>
 	                    </tr>
 
 	                    <tr class="t2">
-	                        <td class="left_algn">Incentive</td>
-	                        <td class="right_algn"><?php echo $data_dtls->inc_amt; ?></td>
-	                        <td class="left_algn">ESI</td>
-	                        <td class="right_algn"><?php echo $data_dtls->esi_amt; ?></td>
-
-	                    </tr>
-
-	                    <tr class="t2">
-	                        <td class="left_algn">LTA</td>
-	                        <td class="right_algn"><?php echo $data_dtls->lta_amt; ?></td>
-	                        <td class="left_algn">Medical Insurance</td>
-	                        <td class="right_algn"><?php echo $data_dtls->med_ins; ?></td>
-
-	                    </tr>
-
-	                    <tr class="t2">
-	                        <td class="left_algn">Medical Allowance</td>
-	                        <td class="right_algn"><?php echo $data_dtls->med_amt; ?></td>
-	                        <td class="left_algn">Mobile Charges</td>
-	                        <td class="right_algn"><?php echo $data_dtls->mob_amt; ?></td>
-
-	                    </tr>
-
-
-	                    <tr class="t2">
-	                        <td class="left_algn">Misc.Allowance</td>
-	                        <td class="right_algn"><?php echo $data_dtls->misc_amt; ?></td>
-	                        <td class="left_algn">P-TAX</td>
-	                        <td class="right_algn"><?php echo $data_dtls->ptax_amt; ?></td>
-
-	                    </tr>
-
-	                    <tr class="t2">
-	                        <td class="left_algn">Outstation Allowance</td>
-	                        <td class="right_algn"><?php echo $data_dtls->out_amt; ?></td>
+	                        <td class="left_algn">Project Allowance</td>
+	                        <td class="right_algn"><?php echo $data_dtls->proj_amt; ?></td>
 	                        <td class="left_algn">TDS</td>
 	                        <td class="right_algn"><?php echo $data_dtls->tds_amt; ?></td>
 
 	                    </tr>
 
 	                    <tr class="t2">
-	                        <td class="left_algn">Project Allowance</td>
-	                        <td class="right_algn"><?php echo $data_dtls->proj_amt; ?></td>
-	                        <td></td><td></td>
-	                        
-
-	                    </tr>
-
-	                    <tr class="t2">
-	                        <td class="left_algn">Conveyance Allowance</td>
-	                        <td class="right_algn"><?php echo $data_dtls->conv_allow; ?></td>
-	                        <td></td><td></td>
-	                        
-
-	                    </tr>
-
-	                    <tr class="t2">
-	                        <td class="left_algn">Variable Allowance</td>
-	                        <td class="right_algn"><?php echo $data_dtls->var_amt; ?></td>
-
-	                        <td></td><td></td>
-
-	                    </tr>
-
-	                    <tr class="t2">
-	                        <td class="left_algn">Total Earnings</td>
-	                        <td class="right_algn"><?php echo $data_dtls->tot_ear; ?></td>
-	                        <td class="left_algn">Total Deductions</td>
+	                        <td class="left_algn">Medical Allowance</td>
+	                        <td class="right_algn"><?php echo $data_dtls->med_amt; ?></td>
+	                        <td class="left_algn">Total Deduction</td>
 	                        <td class="right_algn"><?php echo $data_dtls->tot_ded; ?></td>
+
 	                    </tr>
+
+	                    <tr class="t2">
+	                        <td class="left_algn">LTA</td>
+	                        <td class="right_algn"><?php echo $data_dtls->lta_amt; ?></td>
+	                        <!--<td class="left_algn">Mobile Charges</td>
+	                        <td class="right_algn"><?php //echo $data_dtls->mob_amt; ?></td>-->
+
+	                    </tr>
+
+
+	                    <!--<tr class="t2">
+	                        <td class="left_algn">Misc.Allowance</td>
+	                        <td class="right_algn"><?php //echo $data_dtls->misc_amt; ?></td>
+	                        <td class="left_algn">P-TAX</td>
+	                        <td class="right_algn"><?php //echo $data_dtls->ptax_amt; ?></td>
+
+	                    </tr>-->
+
+	                    <tr class="t2">
+	                        <td class="left_algn">Convence Allowance</td>
+	                        <td class="right_algn"><?php echo $data_dtls->conv_allow; ?></td>
+	                        <td class="left_algn">Net Salary</td>
+	                        <td class="right_algn"><?php echo $data_dtls->net_amt; ?></td>
+
+	                    </tr>
+
+	                    <tr class="t2">
+	                        <td class="left_algn">Gross Salary</td>
+	                        <td class="right_algn"><?php echo $data_dtls->gross_sal; ?></td>
+	                        <td></td><td></td>
+	                        
+
+	                    </tr>
+
+	                    <tr class="t2">
+	                        <td class="left_algn">Outstation Allowance/Incentive</td>
+	                        <td class="right_algn"><?php echo $data_dtls->out_alw; ?></td>
+	                        <td></td><td></td>
+	                        
+
+	                    </tr>
+
+	                    <tr class="t2">
+	                        <td class="left_algn">Total Salary</td>
+	                        <td class="right_algn"><?php echo $data_dtls->tot_sal; ?></td>
+
+	                        <td></td><td></td>
+
+	                    </tr>
+
+	                    <!--<tr class="t2">
+	                        <td class="left_algn">Total Earnings</td>
+	                        <td class="right_algn"><?php //echo $data_dtls->tot_ear; ?></td>
+	                        <td class="left_algn">Total Deductions</td>
+	                        <td class="right_algn"><?php //echo $data_dtls->tot_ded; ?></td>
+	                    </tr>-->
 
 	                </tbody>
 
 	            </table>
 
 	            <div>
-	            	
+	            	<hr>
 	            	<strong>Net Amount: <?php echo $data_dtls->net_amt; ?> ( <font size="4.5"><?php echo getIndianCurrency($data_dtls->net_amt);?></font>)</strong>
 
 	            </div>

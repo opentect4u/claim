@@ -265,44 +265,40 @@
 
 						   while(($line = fgetcsv($csvFile)) !== FALSE){
 
-							   if($line[0]!='' && $line[0]!='Employee No.'){
+							   if($line[0]!='' && $line[0]!='Employee Id'){
 								   $user_id = $this->session->userdata('loggedin')->user_id;
 								   $time    = date('Y-m-d h:i:s');
 														//echo"<pre>";
 														//var_dump($line);
 								   $data = array(
-									    "trans_dt"		  => date('Y-m-d'),
-								   	    "sal_month"		  => $salmonth,
-									    "sal_year"      	  => $salyear,
-									    "emp_no"   		  => $line[0],
-  									    "emp_name"		  => $line[1],
-										"emp_desig"  	  => $line[2],
-						   			    "basic_sal"	  	  => $line[3],
-			   			   			    "conv_allow"	  => $line[4],
-						   			    "da_amt"	  	  => $line[5],
-					   	   			    "hra_amt"		  => $line[6],
-						   			    "inc_amt" 	  	  => $line[7],
-						   			    "lta_amt"		  => $line[8],
-									    "med_amt"		  => $line[9],
-									    "misc_amt"            => $line[10],
-									    "out_amt"             => $line[11],
-									    "proj_amt"            => $line[12],
-									    "var_amt"             => $line[13],
-									    "tot_ear"             => $line[14],
-									    "arr_pf"              => $line[15],
-									    "epf_amt"             => $line[16],
-									    "adv_amt"             => $line[17],
-									    "esi_amt"             => $line[18],
-									    "med_ins"             => $line[19],
-									    "mob_amt"             => $line[20],
-									    "ptax_amt"            => $line[21],
-								    	    "tds_amt"             => $line[22],
-									    "tot_ded"             => $line[23],
-									    "net_amt"             => $line[24],		    
-						   			    "created_by"   	  => $user_id,
-									    "created_dt"   	  => $time,
-									    "modified_by"         => NULL,
-									    "modified_dt"         => NULL
+									    "trans_dt"		  		=> date('Y-m-d'),
+								   	    "sal_month"		  		=> $salmonth,
+									    "sal_year"        		=> $salyear,
+									    "emp_no"   		  		=> $line[0],
+  									    "srl_no"		  		=> $line[1],
+										"emp_name"  	  		=> $line[2],
+						   			    "emp_desig"	  	  		=> $line[3],
+			   			   			    "basic_sal"	  			=> $line[4],
+						   			    "da_amt"	  	  		=> $line[5],
+					   	   			    "hra_amt"		  		=> $line[6],
+						   			    "proj_amt" 	  	  		=> $line[7],
+						   			    "med_amt"		  		=> $line[8],
+									    "lta_amt"		  		=> $line[9],
+									    "conv_allow"            => $line[10],
+									    "gross_sal"             => $line[11],
+									    "out_alw"            	=> $line[12],
+									    "tot_sal"             	=> $line[13],
+									    "ptax_amt"             	=> $line[14],
+									    "epf_amt"              	=> $line[15],
+									    "esi_amt"             	=> $line[16],
+									    "adv_amt"             	=> $line[17],
+									    "tds_amt"             	=> $line[18],
+									    "tot_ded"             	=> $line[19],
+									    "net_amt"             	=> $line[20], 
+						   			    "created_by"   	  		=> $user_id,
+									    "created_dt"   	  		=> $time,
+									    "modified_by"         	=> NULL,
+									    "modified_dt"         	=> NULL
 					   			  );
 					 	                  $this->PayrollModel->insert_data('tm_paysheet',$data);
 							   }
